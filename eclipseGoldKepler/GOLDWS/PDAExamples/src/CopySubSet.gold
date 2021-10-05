@@ -1,0 +1,39 @@
+// -----------------------
+// Silvia Takahashi
+// UNIVERSIDAD DE LOS ANDES
+//------------------------------
+// 
+//  
+//  Recognizes  L = {a^n ba^m a^n ba^m: n >=0, m >= 0}  
+//
+
+
+
+using gold.structures.automaton.*
+using gold.visualization.automaton.*
+procedure main(args:String[]) begin
+	GAutomataFrame.show(createAutomaton())
+end
+function createAutomaton():IPushdownAutomaton begin
+	Σ:=('a'‥'b')
+	 
+	Q:=  {'I','F','M'} 
+	
+	Γ:={'0','1'}
+	q₀:='I'
+	F:={'F'}
+	M:=GPushdownAutomaton(Q,Σ,Γ,q₀,F)
+	
+	
+		M.delta('I','I','a').push("0")
+		M.delta('I','M','b').ignore()
+	   		M.delta('M','M','a').pop("0")
+	   		M.delta('M','M','a').push("1")
+	   	M.delta('M','F','b').ignore()
+	   		
+	 	M.delta('F','F','a').pop("1")
+	return M
+end
+
+
+

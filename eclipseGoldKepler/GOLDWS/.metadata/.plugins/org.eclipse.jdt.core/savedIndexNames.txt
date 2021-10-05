@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+C:\Users\stakahas\Desktop\eclipseGoldKepler\GOLDWS\.metadata\.plugins\org.eclipse.jdt.core
+2200349730.index
+1035365537.index
